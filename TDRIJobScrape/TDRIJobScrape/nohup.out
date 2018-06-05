@@ -1,0 +1,84 @@
+Traceback (most recent call last):
+  File "/Users/tonmaii/venvs/webscrape/bin/scrapy", line 7, in <module>
+    from scrapy.cmdline import execute
+  File "/Users/tonmaii/venvs/webscrape/lib/python2.7/site-packages/scrapy/cmdline.py", line 9, in <module>
+    from scrapy.crawler import CrawlerProcess
+  File "/Users/tonmaii/venvs/webscrape/lib/python2.7/site-packages/scrapy/crawler.py", line 7, in <module>
+    from twisted.internet import reactor, defer
+  File "/Users/tonmaii/venvs/webscrape/lib/python2.7/site-packages/twisted/internet/reactor.py", line 38, in <module>
+    from twisted.internet import default
+  File "/Users/tonmaii/venvs/webscrape/lib/python2.7/site-packages/twisted/internet/default.py", line 56, in <module>
+    install = _getInstallFunction(platform)
+  File "/Users/tonmaii/venvs/webscrape/lib/python2.7/site-packages/twisted/internet/default.py", line 50, in _getInstallFunction
+    from twisted.internet.selectreactor import install
+  File "/Users/tonmaii/venvs/webscrape/lib/python2.7/site-packages/twisted/internet/selectreactor.py", line 18, in <module>
+    from twisted.internet import posixbase
+  File "/Users/tonmaii/venvs/webscrape/lib/python2.7/site-packages/twisted/internet/posixbase.py", line 18, in <module>
+    from twisted.internet import error, udp, tcp
+  File "/Users/tonmaii/venvs/webscrape/lib/python2.7/site-packages/twisted/internet/tcp.py", line 28, in <module>
+    from twisted.internet._newtls import (
+  File "/Users/tonmaii/venvs/webscrape/lib/python2.7/site-packages/twisted/internet/_newtls.py", line 21, in <module>
+    from twisted.protocols.tls import TLSMemoryBIOFactory, TLSMemoryBIOProtocol
+  File "/Users/tonmaii/venvs/webscrape/lib/python2.7/site-packages/twisted/protocols/tls.py", line 41, in <module>
+    from OpenSSL.SSL import Error, ZeroReturnError, WantReadError
+  File "/Users/tonmaii/venvs/webscrape/lib/python2.7/site-packages/OpenSSL/__init__.py", line 8, in <module>
+    from OpenSSL import crypto, SSL
+  File "/Users/tonmaii/venvs/webscrape/lib/python2.7/site-packages/OpenSSL/crypto.py", line 12, in <module>
+    from cryptography import x509
+  File "/Users/tonmaii/venvs/webscrape/lib/python2.7/site-packages/cryptography/x509/__init__.py", line 8, in <module>
+    from cryptography.x509.base import (
+  File "/Users/tonmaii/venvs/webscrape/lib/python2.7/site-packages/cryptography/x509/base.py", line 16, in <module>
+    from cryptography.x509.extensions import Extension, ExtensionType
+  File "/Users/tonmaii/venvs/webscrape/lib/python2.7/site-packages/cryptography/x509/extensions.py", line 24, in <module>
+    from cryptography.x509.general_name import GeneralName, IPAddress, OtherName
+  File "/Users/tonmaii/venvs/webscrape/lib/python2.7/site-packages/cryptography/x509/general_name.py", line 12, in <module>
+    import idna
+  File "/Users/tonmaii/venvs/webscrape/lib/python2.7/site-packages/idna/__init__.py", line 2, in <module>
+    from .core import *
+  File "/Users/tonmaii/venvs/webscrape/lib/python2.7/site-packages/idna/core.py", line 1, in <module>
+    from . import idnadata
+  File "/Users/tonmaii/venvs/webscrape/lib/python2.7/site-packages/idna/idnadata.py", line 3, in <module>
+    __version__ = "6.3.0"
+KeyboardInterrupt
+2018-02-04 11:17:12 [scrapy.utils.log] INFO: Scrapy 1.5.0 started (bot: TDRIJobScrape)
+2018-02-04 11:17:12 [scrapy.utils.log] INFO: Versions: lxml 4.1.1.0, libxml2 2.9.7, cssselect 1.0.3, parsel 1.3.1, w3lib 1.18.0, Twisted 17.9.0, Python 2.7.14 (default, Jan  3 2018, 12:57:16) - [GCC 4.2.1 Compatible Apple LLVM 9.0.0 (clang-900.0.39.2)], pyOpenSSL 17.5.0 (OpenSSL 1.1.0g  2 Nov 2017), cryptography 2.1.4, Platform Darwin-17.3.0-x86_64-i386-64bit
+2018-02-04 11:17:12 [scrapy.crawler] INFO: Overridden settings: {'NEWSPIDER_MODULE': 'TDRIJobScrape.spiders', 'FEED_URI': '/Users/tonmaii/Project/TDRI/output/20180203/jobpub/jobpub.json', 'SPIDER_MODULES': ['TDRIJobScrape.spiders'], 'BOT_NAME': 'TDRIJobScrape', 'ROBOTSTXT_OBEY': True, 'FEED_FORMAT': 'json', 'DOWNLOAD_DELAY': 1}
+2018-02-04 11:17:13 [scrapy.middleware] INFO: Enabled extensions:
+['scrapy.extensions.feedexport.FeedExporter',
+ 'scrapy.extensions.memusage.MemoryUsage',
+ 'scrapy.extensions.logstats.LogStats',
+ 'scrapy.extensions.telnet.TelnetConsole',
+ 'scrapy.extensions.corestats.CoreStats']
+2018-02-04 11:17:13 [scrapy.middleware] INFO: Enabled downloader middlewares:
+['scrapy.downloadermiddlewares.robotstxt.RobotsTxtMiddleware',
+ 'scrapy.downloadermiddlewares.httpauth.HttpAuthMiddleware',
+ 'scrapy.downloadermiddlewares.downloadtimeout.DownloadTimeoutMiddleware',
+ 'scrapy.downloadermiddlewares.defaultheaders.DefaultHeadersMiddleware',
+ 'scrapy.downloadermiddlewares.useragent.UserAgentMiddleware',
+ 'scrapy.downloadermiddlewares.retry.RetryMiddleware',
+ 'scrapy.downloadermiddlewares.redirect.MetaRefreshMiddleware',
+ 'scrapy.downloadermiddlewares.httpcompression.HttpCompressionMiddleware',
+ 'scrapy.downloadermiddlewares.redirect.RedirectMiddleware',
+ 'scrapy.downloadermiddlewares.cookies.CookiesMiddleware',
+ 'scrapy.downloadermiddlewares.httpproxy.HttpProxyMiddleware',
+ 'scrapy.downloadermiddlewares.stats.DownloaderStats']
+2018-02-04 11:17:13 [scrapy.middleware] INFO: Enabled spider middlewares:
+['scrapy.spidermiddlewares.httperror.HttpErrorMiddleware',
+ 'scrapy.spidermiddlewares.offsite.OffsiteMiddleware',
+ 'scrapy.spidermiddlewares.referer.RefererMiddleware',
+ 'scrapy.spidermiddlewares.urllength.UrlLengthMiddleware',
+ 'scrapy.spidermiddlewares.depth.DepthMiddleware']
+2018-02-04 11:17:13 [scrapy.middleware] INFO: Enabled item pipelines:
+[]
+2018-02-04 11:17:13 [scrapy.core.engine] INFO: Spider opened
+2018-02-04 11:17:13 [scrapy.extensions.logstats] INFO: Crawled 0 pages (at 0 pages/min), scraped 0 items (at 0 items/min)
+2018-02-04 11:17:13 [scrapy.extensions.telnet] DEBUG: Telnet console listening on 127.0.0.1:6026
+2018-02-04 11:17:13 [scrapy.core.engine] DEBUG: Crawled (404) <GET http://job.jobpub.com/robots.txt> (referer: None)
+2018-02-04 11:17:15 [scrapy.core.engine] DEBUG: Crawled (200) <GET http://job.jobpub.com/search_job_tmp.asp?no=1&keyword=&Job_Group=&Region=&Province=> (referer: None)
+2018-02-04 11:17:16 [scrapy.core.engine] DEBUG: Crawled (200) <GET http://job.jobpub.com/search_job_tmp.asp?no=2&keyword=&Job_Group=&Region=&Province=> (referer: None)
+2018-02-04 11:17:16 [scrapy.core.engine] DEBUG: Crawled (404) <GET http://www.jobpub.com/robots.txt> (referer: None)
+2018-02-04 11:17:17 [scrapy.crawler] INFO: Received SIGINT, shutting down gracefully. Send again to force 
+2018-02-04 11:17:17 [scrapy.core.engine] INFO: Closing spider (shutdown)
+2018-02-04 11:17:17 [scrapy.crawler] INFO: Received SIGINT twice, forcing unclean shutdown
+2018-02-04 11:17:17 [scrapy.core.downloader.handlers.http11] WARNING: Got data loss in http://job.jobpub.com/search_job_tmp.asp?no=3&keyword=&Job_Group=&Region=&Province=. If you want to process broken responses set the setting DOWNLOAD_FAIL_ON_DATALOSS = False -- This message won't be shown in further requests
+2018-02-04 11:17:17 [scrapy.downloadermiddlewares.retry] DEBUG: Retrying <GET http://job.jobpub.com/search_job_tmp.asp?no=3&keyword=&Job_Group=&Region=&Province=> (failed 1 times): [<twisted.python.failure.Failure twisted.internet.error.ConnectionLost: Connection to the other side was lost in a non-clean fashion: Connection lost.>, <twisted.python.failure.Failure twisted.web.http._DataLoss: >]
