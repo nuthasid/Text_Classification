@@ -11,7 +11,7 @@ class Tokenizer:
 
         self.test_text = 'This is a test text. นี่เป็นตัวอย่าง ข้อความtesting ใน Python 3.6. ทดสอบtest.2) ทดสอบ3.'
         self.pattern_thai_char = re.compile(u'[\u0e00-\u0e7f]')
-        #self.pattern_new_sentence = re.compile('\.[0-9]+(\)|\.) ')
+        self.pattern_new_sentence = re.compile('\.[0-9]+(\)|\.) ')
         self.pattern_th_out = re.compile(u'[\u0e00-\u0e7f][^\u0e00-\u0e7f]')
         self.pattern_th_in = re.compile(u'[^\u0e00-\u0e7f][\u0e00-\u0e7f]')
         self.pattern_num_bullet = re.compile('^[0-9]+(\)|\.)*$')
@@ -100,8 +100,11 @@ class Tokenizer:
         if text == '-test':
             text = self.test_text
 
+        text = self.pattern_email.sub(' ', text)
+        text = self.pattern_url.sub(' ', text)
+        text = self.pattern_phone_number.sub(' ', text)
         text = split_th_en(text)
-        #text = self.pattern_new_sentence.sub(' . ', text)
+        text = self.pattern_new_sentence.sub(' . ', text)
         text = text.replace('.', ' . ')
         text = validate_char(text)
         text_split = text.split(' ')
@@ -109,7 +112,7 @@ class Tokenizer:
                       and not self.pattern_num_bullet.search(item)]
         text_split = [self.stemming.stem(item) if self.pattern_end_token.search(item) and
                       item not in self.keyword else item for item in text_split[:]]
-        
+
         first_pass = []
         for i, item in text_split:
             if self.pattern_sentence_collide.search(item) and item not in self.keyword:
