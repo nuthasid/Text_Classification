@@ -9,7 +9,7 @@ class Tokenizer:
         from nltk.tokenize import TreebankWordTokenizer
         from nltk.stem.snowball import EnglishStemmer
 
-        self.test_text = 'This is a test text. นี่เป็นตัวอย่าง ข้อความtesting ใน Python 3.6. ทดสอบtest.2) ทดสอบ3. test.4. '
+        self.test_text = 'This is a test text. นี่เป็นตัวอย่าง ข้อความtesting ใน Python 3.6. ทดสอบtest.2) ทดสอบ3.'
         self.pattern_thai_char = re.compile(u'[\u0e00-\u0e7f]')
         #self.pattern_new_sentence = re.compile('\.[0-9]+(\)|\.) ')
         self.pattern_th_out = re.compile(u'[\u0e00-\u0e7f][^\u0e00-\u0e7f]')
@@ -20,6 +20,7 @@ class Tokenizer:
         self.pattern_phone_number = re.compile('[0-9]+-[0-9]+-[0-9]+')
         self.pattern_email = re.compile('[a-zA-Z._\-0-9]+@[a-zA-Z._\-0-9]+')
         self.pattern_url = re.compile('(https://|www.)[a-zA-Z0-9]+.[a-z]+[^\s]*')
+        self.pattern_sentence_collide = re.compile('[a-z][A-Z]]')
         self.charset = {}
         with open(os.path.join(os.getcwd(), 'dict', 'charset'), 'rt') as charfile:
             for item in charfile.read().split('\n'):
@@ -103,11 +104,19 @@ class Tokenizer:
         #text = self.pattern_new_sentence.sub(' . ', text)
         text = text.replace('.', ' . ')
         text = validate_char(text)
-        first_pass = text.split(' ')
-        first_pass = [item for item in first_pass[:] if item not in self.stop
+        text_split = text.split(' ')
+        text_split = [item for item in text_split[:] if item not in self.stop
                       and not self.pattern_num_bullet.search(item)]
-        first_pass = [self.stemming.stem(item) if self.pattern_end_token.search(item) and
-                      item not in self.keyword else item for item in first_pass[:]]
+        text_split = [self.stemming.stem(item) if self.pattern_end_token.search(item) and
+                      item not in self.keyword else item for item in text_split[:]]
+        
+        first_pass = []
+        for i, item in text_split:
+            if self.pattern_sentence_collide.search(item) and item not in self.keyword:
+                c_text = self.pattern_sentence_collide.search(item)
+                first_pass.extend([c_text.string[:c_text.span()[0]+1], c_text.string[c_text.span()[1]-1:]])
+            else:
+                first_pass.append(item)
         second_pass = []
         for i, chunk in enumerate(first_pass):
             if self.pattern_thai_char.search(chunk) and len(chunk) > 1:
