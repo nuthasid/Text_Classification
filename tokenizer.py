@@ -21,6 +21,7 @@ class Tokenizer:
         self.pattern_email = re.compile('[a-zA-Z._\-0-9]+@[a-zA-Z._\-0-9]+')
         self.pattern_url = re.compile('(https://|www.)[a-zA-Z0-9]+.[a-z]+[^\s]*')
         self.pattern_sentence_collide = re.compile('[a-z][A-Z]]')
+        self.pattern_thai_name = re.compile(u'\u0e04\u0e38\u0e13\s*[\u0e00-\u0e7f]+\s+')
         self.charset = {}
         with open(os.path.join(os.getcwd(), 'dict', 'charset'), 'rt') as charfile:
             for item in charfile.read().split('\n'):
@@ -103,6 +104,7 @@ class Tokenizer:
         text = self.pattern_email.sub(' ', text)
         text = self.pattern_url.sub(' ', text)
         text = self.pattern_phone_number.sub(' ', text)
+        text = self.pattern_thai_name.sub(' ', text)
         text = split_th_en(text)
         text = self.pattern_new_sentence.sub(' . ', text)
         text = text.replace('.', ' . ')
