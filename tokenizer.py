@@ -1,7 +1,7 @@
 
 class Tokenizer:
 
-    def __init__(self, n_gram, stop=None, keyword=None):
+    def __init__(self, n_gram, stop_en=None, stop_th=None, keyword=None):
 
         import re
         import deepcut
@@ -9,7 +9,7 @@ class Tokenizer:
         from nltk.tokenize import TreebankWordTokenizer
         from nltk.stem.snowball import EnglishStemmer
 
-        self.test_text = 'This is a test text. นี่เป็นตัวอย่าง ข้อความtesting ใน Python 3.6. ทดสอบtest.2) ทดสอบ3.'
+        self.test_text = 'ตัวอย่างความต้องการใช้ตัวอย่างความต้องการลีนุ๊กซ์การใช้ยากลำบาก'
         self.pattern_thai_char = re.compile(u'[\u0e00-\u0e7f]')
         self.pattern_new_sentence = re.compile('\.[0-9]+(\)|\.) ')
         self.pattern_th_out = re.compile(u'[\u0e00-\u0e7f][^\u0e00-\u0e7f]')
@@ -33,11 +33,16 @@ class Tokenizer:
         self.stemming = EnglishStemmer()
         self.n_gram = n_gram
         self.dp = deepcut
-        if stop:
-            with open(os.path.join(os.getcwd(), 'dict', stop), 'rt', encoding='utf-8') as stop_file:
-                self.stop = set([item for item in stop_file.read().split('\n')])
+        if stop_en:
+            with open(os.path.join(os.getcwd(), 'dict', stop_en), 'rt', encoding='utf-8') as stop_file:
+                self.stop_en = set([item for item in stop_file.read().split('\n')])
         else:
-            self.stop = set([])
+            self.stop_en = set([])
+        if stop_th:
+            with open(os.path.join(os.getcwd(), 'dict', stop_th), 'rt', encoding='utf-8') as stop_file:
+                self.stop_th = set([item for item in stop_file.read().split('\n')])
+        else:
+            self.stop_th = set([])
         if keyword:
             with open(os.path.join(os.getcwd(), 'dict', keyword), 'rt', encoding='utf-8') as keyword_file:
                 self.keyword = set([item for item in keyword_file.read().split('\n')])
@@ -76,6 +81,7 @@ class Tokenizer:
 
         def validate_char(val_text):
             val_text = val_text.replace('&amp;', ' ')
+            val_text = val_text.replace('&nbsp;', ' ')
             ret_text = ''
             for cha in val_text:
                 try:
@@ -98,9 +104,31 @@ class Tokenizer:
                 splt_text = splt_text[:pos] + ' ' + splt_text[pos:]
             return splt_text
 
+        def remove_thai_stop(th_text):
+            stop_pos = [[0, 0]]
+            ## TH : do longest matching
+            for j in range(len(th_text)-1):
+                for k in range(j+1, len(th_text)):
+                    if th_text[j:k] in self.stop_th:
+                        # found keyword +++ instead of returning string - return positions that is
+                        # i to j
+                        if j <= stop_pos[-1][1]:
+                            stop_pos[-1] = [stop_pos[-1][0], k]
+                        else:
+                            stop_pos.append([j, k])
+                        break
+            newstr = ''
+            if len(stop_pos) == 1:
+                newstr = th_text
+            else:
+                for j in range(len(stop_pos)-1):
+                    newstr += th_text[stop_pos[j][1]:stop_pos[j+1][0]] + ' '
+            return newstr
+
         if text == '-test':
             text = self.test_text
 
+        text = text.replace(u'\u0e46', ' ')
         text = self.pattern_email.sub(' ', text)
         text = self.pattern_url.sub(' ', text)
         text = self.pattern_phone_number.sub(' ', text)
@@ -109,14 +137,15 @@ class Tokenizer:
         text = self.pattern_new_sentence.sub(' . ', text)
         text = text.replace('.', ' . ')
         text = validate_char(text)
+        text = remove_thai_stop(text)
         text_split = text.split(' ')
-        text_split = [item for item in text_split[:] if item not in self.stop
+        text_split = [item for item in text_split[:] if item not in self.stop_en
                       and not self.pattern_num_bullet.search(item)]
         text_split = [self.stemming.stem(item) if self.pattern_end_token.search(item) and
                       item not in self.keyword else item for item in text_split[:]]
 
         first_pass = []
-        for i, item in text_split:
+        for i, item in enumerate(text_split):
             if self.pattern_sentence_collide.search(item) and item not in self.keyword:
                 c_text = self.pattern_sentence_collide.search(item)
                 first_pass.extend([c_text.string[:c_text.span()[0]+1], c_text.string[c_text.span()[1]-1:]])
@@ -132,6 +161,4 @@ class Tokenizer:
 
         second_pass = n_grams_compile(second_pass, self.n_gram)
 
-        token_list = list(set(second_pass))
-
-        return token_list
+        return set(second_pass)
