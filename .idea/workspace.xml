@@ -2,34 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="988fce17-3a40-4444-957a-4cd50939a736" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/Text_Classification.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Text_Classification.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/R_User_Library.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/R_User_Library.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/clean_text.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/create_dict.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/block123.json" beforeDir="false" afterPath="$PROJECT_DIR$/data/block123.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/data1_tonnytag.json" beforeDir="false" afterPath="$PROJECT_DIR$/data/data1_tonnytag.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dict/charset" beforeDir="false" afterPath="$PROJECT_DIR$/dict/charset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dict/desc_newdict.txt" beforeDir="false" afterPath="$PROJECT_DIR$/dict/desc_newdict.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dict/desc_newdict_70p.txt" beforeDir="false" afterPath="$PROJECT_DIR$/dict/desc_newdict_70p.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dict/desc_newdict_90p.txt" beforeDir="false" afterPath="$PROJECT_DIR$/dict/desc_newdict_90p.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dict/desc_vocab.txt" beforeDir="false" afterPath="$PROJECT_DIR$/dict/desc_vocab.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dict/desc_vocab_small.txt" beforeDir="false" afterPath="$PROJECT_DIR$/dict/desc_vocab_small.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dict/en_stop_word_google.txt" beforeDir="false" afterPath="$PROJECT_DIR$/dict/en_stop_word_google.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dict/en_stop_words_google.txt" beforeDir="false" afterPath="$PROJECT_DIR$/dict/en_stop_words_google.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dict/keywords" beforeDir="false" afterPath="$PROJECT_DIR$/dict/keywords" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dict/stop_word" beforeDir="false" afterPath="$PROJECT_DIR$/dict/stop_word" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dict/title_newdict.txt" beforeDir="false" afterPath="$PROJECT_DIR$/dict/title_newdict.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dict/title_newdict_70p.txt" beforeDir="false" afterPath="$PROJECT_DIR$/dict/title_newdict_70p.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dict/title_newdict_90p.txt" beforeDir="false" afterPath="$PROJECT_DIR$/dict/title_newdict_90p.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dict/title_vocab.txt" beforeDir="false" afterPath="$PROJECT_DIR$/dict/title_vocab.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dict/title_vocab_small.txt" beforeDir="false" afterPath="$PROJECT_DIR$/dict/title_vocab_small.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/notebook/Scrach_Pad.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/notebook/Scrach_Pad.ipynb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/notebook/mutual_info_desc.txt" beforeDir="false" afterPath="$PROJECT_DIR$/notebook/mutual_info_desc.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/notebook/mutual_info_title.txt" beforeDir="false" afterPath="$PROJECT_DIR$/notebook/mutual_info_title.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/notebook/text_classification-bernoulliNB-newdata.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/notebook/text_classification-bernoulliNB-newdata.ipynb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test.py" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/tokenizer.py" beforeDir="false" afterPath="$PROJECT_DIR$/tokenizer.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/word_counting.py" beforeDir="false" afterPath="$PROJECT_DIR$/word_counting.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -49,20 +25,33 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="tokenizer.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="tokenizer.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/tokenizer.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="525">
-              <caret line="147" column="45" lean-forward="true" selection-start-line="147" selection-start-column="45" selection-end-line="147" selection-end-column="45" />
+            <state relative-caret-position="450">
+              <caret line="75" column="49" selection-start-line="75" selection-start-column="49" selection-end-line="75" selection-end-column="49" />
+              <folding>
+                <element signature="e#1066#1619#0" />
+                <element signature="e#1674#1905#0" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="keywords" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/dict/keywords">
+      <file leaf-file-name="clean_text.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/clean_text.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="15">
-              <caret line="1" column="51" selection-start-line="1" selection-start-column="51" selection-end-line="1" selection-end-column="51" />
+            <state relative-caret-position="255">
+              <caret line="17" column="50" selection-start-line="17" selection-start-column="50" selection-end-line="17" selection-end-column="50" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="create_dict.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/create_dict.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="444">
+              <caret line="157" lean-forward="true" selection-start-line="157" selection-end-line="157" />
             </state>
           </provider>
         </entry>
@@ -96,7 +85,10 @@
         <option value="$PROJECT_DIR$/dict/stop_word" />
         <option value="$PROJECT_DIR$/dict/keywords" />
         <option value="$PROJECT_DIR$/word_segmentor.py" />
+        <option value="$PROJECT_DIR$/dict/clean_text.py" />
+        <option value="$PROJECT_DIR$/clean_text.py" />
         <option value="$PROJECT_DIR$/tokenizer.py" />
+        <option value="$PROJECT_DIR$/create_dict.py" />
       </list>
     </option>
   </component>
@@ -118,7 +110,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -126,21 +117,22 @@
               <item name="Text_Classification" type="b2602c69:ProjectViewProjectNode" />
               <item name="Text_Classification" type="462c0819:PsiDirectoryNode" />
             </path>
-            <path>
-              <item name="Text_Classification" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Text_Classification" type="462c0819:PsiDirectoryNode" />
-              <item name="dict" type="462c0819:PsiDirectoryNode" />
-            </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
+    <property name="settings.editor.selected.configurable" value="vcs.Git" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$" />
+    </key>
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -200,33 +192,58 @@
       <option name="project" value="LOCAL" />
       <updated>1528707568957</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="add longest match for garbage words">
+      <created>1529571603931</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1529571603931</updated>
+    </task>
+    <task id="LOCAL-00007" summary="add garbage word list">
+      <created>1529571700055</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1529571700055</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="25" width="1920" height="1055" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.17510548" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.17668776" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Event Log" order="7" sideWeight="0.5010661" side_tool="true" weight="0.34422657" />
       <window_info anchor="bottom" id="Version Control" order="7" weight="0.32792208" />
-      <window_info active="true" anchor="bottom" id="Python Console" order="7" sideWeight="0.4989339" visible="true" weight="0.3625541" />
+      <window_info active="true" anchor="bottom" id="Python Console" order="7" sideWeight="0.4989339" visible="true" weight="0.36363637" />
       <window_info anchor="bottom" id="Run" order="2" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Terminal" order="7" weight="0.3286334" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.3991323" />
+      <window_info anchor="bottom" id="Version Control" order="7" weight="0.32792208" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.17650159" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="right" id="Commander" order="0" weight="0.4" />
-      <window_info anchor="right" id="R Packages" order="3" />
-      <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="right" id="R Graphics" order="3" />
-      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Run" order="2" />
+      <window_info anchor="right" id="R Packages" order="3" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.3991323" />
       <window_info anchor="right" id="Database" order="3" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Event Log" order="7" sideWeight="0.5010661" side_tool="true" weight="0.34422657" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info id="Favorites" order="2" side_tool="true" />
+      <window_info anchor="bottom" id="Find" order="1" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="7" visible="true" weight="0.3278867" />
       <window_info anchor="right" id="Data View" order="3" />
+      <window_info anchor="bottom" id="Python Console" order="7" sideWeight="0.4989339" weight="0.3627451" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -240,7 +257,9 @@
     <MESSAGE value="add split colling sentences" />
     <MESSAGE value="add url email phone number parsing" />
     <MESSAGE value="add regex for thai name" />
-    <option name="LAST_COMMIT_MESSAGE" value="add regex for thai name" />
+    <MESSAGE value="add longest match for garbage words" />
+    <MESSAGE value="add garbage word list" />
+    <option name="LAST_COMMIT_MESSAGE" value="add garbage word list" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -251,7 +270,7 @@
           </properties>
         </breakpoint>
       </default-breakpoints>
-      <option name="time" value="46" />
+      <option name="time" value="47" />
     </breakpoint-manager>
     <watches-manager>
       <configuration name="Python Console Debugger">
@@ -263,14 +282,6 @@
     </watches-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/tokenizer.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="19" lean-forward="true" selection-start-line="19" selection-end-line="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/unit_test.py" />
     <entry file="file://$PROJECT_DIR$/parse_ad.py" />
     <entry file="file://$PROJECT_DIR$/word_counting.py">
       <provider selected="true" editor-type-id="text-editor">
@@ -394,21 +405,37 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/dict/stop_word" />
     <entry file="file://$PROJECT_DIR$/dict/charset" />
+    <entry file="file://$PROJECT_DIR$/word_segmentor.py" />
+    <entry file="file://$PROJECT_DIR$/test.py" />
     <entry file="file://$PROJECT_DIR$/dict/keywords">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
+        <state relative-caret-position="21">
           <caret line="1" column="51" selection-start-line="1" selection-start-column="51" selection-end-line="1" selection-end-column="51" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/word_segmentor.py" />
-    <entry file="file://$PROJECT_DIR$/test.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/tokenizer.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="525">
-          <caret line="147" column="45" lean-forward="true" selection-start-line="147" selection-start-column="45" selection-end-line="147" selection-end-column="45" />
+        <state relative-caret-position="450">
+          <caret line="75" column="49" selection-start-line="75" selection-start-column="49" selection-end-line="75" selection-end-column="49" />
+          <folding>
+            <element signature="e#1066#1619#0" />
+            <element signature="e#1674#1905#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/create_dict.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="444">
+          <caret line="157" lean-forward="true" selection-start-line="157" selection-end-line="157" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/clean_text.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="17" column="50" selection-start-line="17" selection-start-column="50" selection-end-line="17" selection-end-column="50" />
         </state>
       </provider>
     </entry>
