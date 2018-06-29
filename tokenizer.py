@@ -54,6 +54,8 @@ class Tokenizer:
             return n_tokens
 
         if not text:
+            return
+        elif text == '-test':
             text = self.test_text
 
         if cleaning:
@@ -71,10 +73,9 @@ class Tokenizer:
         for i, chunk in enumerate(first_pass):
             if self.pattern_thai_char.search(chunk) and len(chunk) > 1:
                 new_chunk = self.dp.tokenize(chunk)
+                new_chunk = n_grams_compile(new_chunk, self.n_gram)
                 second_pass.extend(new_chunk)
             else:
                 second_pass.append(chunk.lower())
 
-        second_pass = n_grams_compile(second_pass, self.n_gram)
-
-        return set(second_pass)
+        return second_pass
