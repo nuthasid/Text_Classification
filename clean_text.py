@@ -11,7 +11,7 @@ class CleanText:
         self.pattern_th_out = re.compile(u'[\u0e00-\u0e7f][^\u0e00-\u0e7f]')
         self.pattern_th_in = re.compile(u'[^\u0e00-\u0e7f][\u0e00-\u0e7f]')
         self.pattern_num_bullet = re.compile('^[0-9]+(\)|\.)*$')
-        self.pattern_end_token = re.compile('^[a-zA-Z]+$')
+        self.pattern_eng_token = re.compile('^[a-zA-Z]+$')
         self.pattern_number = re.compile('\+*[0-9]+')
         self.pattern_phone_number = re.compile('[0-9]+-[0-9]+-[0-9]+')
         self.pattern_email = re.compile('[a-zA-Z._\-0-9]+@[a-zA-Z._\-0-9]+')
@@ -91,6 +91,12 @@ class CleanText:
                     newstr += th_text[stop_pos[j][1]:stop_pos[j+1][0]] + ' '
             return newstr
 
+        import time
+
+        start = time.time()
+
+        print('cleaning "' + text[:40] + '" start time: ' + str(start))
+
         text = text.replace(u'\u0e46', ' ')
         text = self.pattern_email.sub(' ', text)
         text = self.pattern_url.sub(' ', text)
@@ -104,8 +110,10 @@ class CleanText:
         text_split = text.split(' ')
         text_split = [item for item in text_split[:] if item not in self.stop_en
                       and not self.pattern_num_bullet.search(item)]
-        text_split = [self.stemming.stem(item) if self.pattern_end_token.search(item) and
+        text_split = [self.stemming.stem(item) if self.pattern_eng_token.search(item) and
                                                   item not in self.keyword else item for item in text_split[:]]
         text = '|'.join(text_split)
+
+        print('finish "' + text[:40] + '" elapsed time: ' + str(time.time() - start))
 
         return text
