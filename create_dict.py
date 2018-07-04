@@ -124,7 +124,7 @@ class CleanText:
 
 class CreateDict:
 
-    def __init__(self, tokenizer, n_gram=1, processes=4, stop_en=None, stop_th=None, keyword=None, th_wordlist=None,
+    def __init__(self, tokenizer, n_gram=1, processes=8, tokenize_processess=8, stop_en=None, stop_th=None, keyword=None, th_wordlist=None,
                  en_wordlist=None):
 
         from tokenizer import Tokenizer
@@ -135,6 +135,7 @@ class CreateDict:
         TKN = Tokenizer(tokenizer=tokenizer, n_gram=n_gram, stop_en=stop_en, stop_th=stop_th, keyword=keyword)
         self.tkn = TKN.tokenizer
         self.processes = processes
+        self.token_processes = tokenize_processess
         self.n_gram = n_gram
         if th_wordlist:
             self.wordlist_th = []
@@ -238,9 +239,12 @@ class CreateDict:
         docs = pool.amap(clean_text, docs)
         docs = docs.get()
         print('Finish cleaning text - time: ', str(time.time()-start))
-        pool = mp.ProcessPool(nodes=self.processes)
-        tokens = pool.amap(self.tkn, docs)
-        tokens = tokens.get()
+        if self.token_processes == 1:
+            tokens = [self.tkn(doc) for doc in docs]
+        else:
+            pool = mp.ProcessPool(nodes=self.processes)
+            tokens = pool.amap(self.tkn, docs)
+            tokens = tokens.get()
         print('Finish tokenization - time: ', str(time.time()-start))
         temp = copy.deepcopy(tokens)
         tokens = []
