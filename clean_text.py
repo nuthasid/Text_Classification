@@ -74,7 +74,7 @@ class CleanText:
             stop_pos = [[0, 0]]
             ## TH : do longest matching
             for j in range(len(th_text)-1):
-                for k in range(j+1, len(th_text)):
+                for k in range(j+1, min(len(th_text), j+36)):
                     if th_text[j:k] in self.stop_th:
                         # found keyword +++ instead of returning string - return positions that is
                         # i to j
