@@ -44,7 +44,7 @@ class CleanText:
         else:
             self.keyword = set([])
 
-    def clean_text(self, text):
+    def clean_text(self, text, stemming=True):
 
         def validate_char(val_text):
             val_text = val_text.replace('&amp;', ' ')
@@ -75,7 +75,7 @@ class CleanText:
             stop_pos = [[0, 0]]
             ## TH : do longest matching
             for j in range(len(th_text)-1):
-                for k in range(j+1, min(len(th_text), j+1+50)):
+                for k in range(j+1, min(len(th_text), j+1+36)):
                     if th_text[j:k] in self.stop_th:
                         # found keyword +++ instead of returning string - return positions that is
                         # i to j
@@ -112,8 +112,9 @@ class CleanText:
         text_split = text.split(' ')
         text_split = [item for item in text_split[:] if item not in self.stop_en
                       and not self.pattern_num_bullet.search(item)]
-        text_split = [self.stemming.stem(item) if self.pattern_end_token.search(item) and
-                                                  item not in self.keyword else item for item in text_split[:]]
+        if stemming:
+            text_split = [self.stemming.stem(item) if self.pattern_end_token.search(item) and
+                                                      item not in self.keyword else item for item in text_split[:]]
         text = '|'.join(text_split)
 
         #print('process: ', pid, ' time:', time.time() - start, ' len:', len(text))
@@ -123,18 +124,34 @@ class CleanText:
 
 class CreateDict:
 
-    def __init__(self, n_gram, processes=4, stop_en=None, stop_th=None, keyword=None):
+    def __init__(self, tokenizer, n_gram=1, processes=4, stop_en=None, stop_th=None, keyword=None, th_wordlist=None,
+                 en_wordlist=None):
 
         from tokenizer import Tokenizer
+        import os
 
         Clean_Text = CleanText(stop_en=stop_en, stop_th=stop_th, keyword=keyword)
         self.clean_text = Clean_Text.clean_text
-        TKN = Tokenizer(n_gram=n_gram, stop_en=stop_en, stop_th=stop_th, keyword=keyword)
+        TKN = Tokenizer(tokenizer=tokenizer, n_gram=n_gram, stop_en=stop_en, stop_th=stop_th, keyword=keyword)
         self.tkn = TKN.tokenizer
         self.processes = processes
         self.n_gram = n_gram
+        if th_wordlist:
+            self.wordlist_th = []
+            with open(os.path.join(os.getcwd(), '..', 'dict', th_wordlist), 'rt', encoding='utf-8') as f:
+                for line in f.readlines():
+                    self.wordlist_th.append(line[:-1])
+        else:
+            self.wordlist_th = None
+        if en_wordlist:
+            self.wordlist_en = []
+            with open(os.path.join(os.getcwd(), '..', 'dict', en_wordlist), 'rt', encoding='utf-8') as f:
+                for line in f.readlines():
+                    self.wordlist_en.append(line.split('\t')[0].strip())
+        else:
+            self.wordlist_en = None
 
-    def create_dict(self, docs):
+    def compile_dict(self, docs):
 
         import pathos.multiprocessing as mp
         import time
@@ -154,4 +171,86 @@ class CreateDict:
 
         print('tokenize:', time.time() - start)
 
+        return dicts
+
+    def create_dict(self, docs, match_suggest=False):
+        """
+            Use tokenizer such as deepcut to get a list of actual words being used in job posting.
+            Compare the list with dictionary and collect words that don't appear in the dictionary.
+            If the words are misspelled, then mark as possible typos.
+            If the words are correctly spelled but are not included in the dictionary, add the word to the dictionary.
+        """
+
+        import pathos.multiprocessing as mp
+        from nlp_lib import levenshtein as lv
+        import os
+        import time
+        import copy
+
+        def levenshtein(word, wl):
+            """
+            Take a word, find closest word in dict according to levenshtein distance.
+            Return closest word and corresponding minimum edits. (original_word, closest_match, edits)
+            """
+
+            start = time.time()
+            print('Start: ', os.getpid(), word)
+
+            min_edit = len(word)*2
+            match = None
+
+            for item in wl:
+                edit = lv(word, item)
+                if edit < min_edit:
+                    min_edit = edit
+                    match = item
+
+            print('Stop: ', os.getpid(), word, ': ', str(time.time()-start))
+
+            return (word, match, item)
+
+        def find_matching(word, levin=False):
+
+            if ord(word[0]) in range(3584, 3712):
+                current_wl = self.wordlist_th
+            else:
+                current_wl = self.wordlist_en
+            for item in current_wl:
+                if item == word:
+                    ret = (word, word, 0)
+                    return ret
+            if levin:
+                return levenshtein(word, current_wl)
+            else:
+                return (word, word, 1)
+
+        def clean_text(doc):
+            return self.clean_text(doc, False)
+
+        if self.wordlist_th and self.wordlist_en:
+            pass
+        else:
+            return None
+
+        start = time.time()
+
+        pool = mp.ProcessPool(nodes=self.processes)
+        docs = pool.amap(clean_text, docs)
+        docs = docs.get()
+        print('Finish cleaning text - time: ', str(time.time()-start))
+        pool = mp.ProcessPool(nodes=self.processes)
+        tokens = pool.amap(self.tkn, docs)
+        tokens = tokens.get()
+        print('Finish tokenization - time: ', str(time.time()-start))
+        temp = copy.deepcopy(tokens)
+        tokens = []
+        for item in temp:
+            tokens.extend(item)
+        tokens.sort()
+        tokens = set(tokens)
+        tokens = [item.lower() for item in tokens if item != '']
+        print('Finish compile list - time: ', str(time.time()-start))
+        pool = mp.ProcessPool(nodes=self.processes)
+        dicts = pool.amap(find_matching, tokens)
+        dicts = dicts.get()
         return dicts
