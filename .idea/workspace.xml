@@ -2,13 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="988fce17-3a40-4444-957a-4cd50939a736" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/mkdict.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/nlp_lib.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dict/customdict_en.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dict/customdict_th.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dict/dict_in.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dict/dict_out.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/clean_text.py" beforeDir="false" afterPath="$PROJECT_DIR$/clean_text.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/create_dict.py" beforeDir="false" afterPath="$PROJECT_DIR$/create_dict.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/dict/wordlist_en.txt" beforeDir="false" afterPath="$PROJECT_DIR$/dict/wordlist_en.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/notebook/Scrach_Pad.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/notebook/Scrach_Pad.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mkdict.py" beforeDir="false" afterPath="$PROJECT_DIR$/mkdict.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tokenizer.py" beforeDir="false" afterPath="$PROJECT_DIR$/tokenizer.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -23,8 +25,11 @@
       <file leaf-file-name="word_counting.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/word_counting.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="495">
+            <state relative-caret-position="405">
               <caret line="33" column="47" selection-start-line="33" selection-start-column="47" selection-end-line="33" selection-end-column="47" />
+              <folding>
+                <element signature="e#238#415#0" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -32,8 +37,8 @@
       <file leaf-file-name="tokenizer.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/tokenizer.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="435">
-              <caret line="29" column="25" selection-start-line="29" selection-start-column="25" selection-end-line="29" selection-end-column="25" />
+            <state relative-caret-position="300">
+              <caret line="62" column="25" selection-start-line="62" selection-start-column="25" selection-end-line="62" selection-end-column="25" />
             </state>
           </provider>
         </entry>
@@ -41,8 +46,8 @@
       <file leaf-file-name="clean_text.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/clean_text.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1785">
-              <caret line="119" selection-start-line="119" selection-end-line="119" />
+            <state relative-caret-position="441">
+              <caret line="122" selection-start-line="122" selection-end-line="122" />
             </state>
           </provider>
         </entry>
@@ -50,8 +55,8 @@
       <file leaf-file-name="create_dict.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/create_dict.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-8">
-              <caret line="226" column="28" lean-forward="true" selection-start-line="226" selection-start-column="28" selection-end-line="226" selection-end-column="28" />
+            <state relative-caret-position="336">
+              <caret line="260" column="37" lean-forward="true" selection-start-line="260" selection-start-column="37" selection-end-line="260" selection-end-column="37" />
               <folding>
                 <element signature="e#94#2308#0" />
               </folding>
@@ -62,7 +67,7 @@
       <file leaf-file-name="nlp_lib.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/nlp_lib.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="735">
+            <state relative-caret-position="501">
               <caret line="49" selection-start-line="49" selection-end-line="49" />
             </state>
           </provider>
@@ -71,8 +76,8 @@
       <file leaf-file-name="mkdict.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/mkdict.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="427">
-              <caret line="36" column="21" lean-forward="true" selection-start-line="36" selection-start-column="21" selection-end-line="36" selection-end-column="21" />
+            <state relative-caret-position="576">
+              <caret line="40" selection-start-line="40" selection-end-line="40" />
             </state>
           </provider>
         </entry>
@@ -107,11 +112,11 @@
         <option value="$PROJECT_DIR$/dict/keywords" />
         <option value="$PROJECT_DIR$/word_segmentor.py" />
         <option value="$PROJECT_DIR$/dict/clean_text.py" />
-        <option value="$PROJECT_DIR$/tokenizer.py" />
-        <option value="$PROJECT_DIR$/clean_text.py" />
         <option value="$PROJECT_DIR$/nlp_lib.py" />
-        <option value="$PROJECT_DIR$/mkdict.py" />
+        <option value="$PROJECT_DIR$/clean_text.py" />
+        <option value="$PROJECT_DIR$/tokenizer.py" />
         <option value="$PROJECT_DIR$/create_dict.py" />
+        <option value="$PROJECT_DIR$/mkdict.py" />
       </list>
     </option>
   </component>
@@ -133,7 +138,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -150,6 +154,7 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -255,7 +260,28 @@
       <option name="project" value="LOCAL" />
       <updated>1530253455242</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="add a script to make custom dictionary">
+      <created>1530673532198</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1530673532198</updated>
+    </task>
+    <task id="LOCAL-00012" summary="add a script to make custom dictionary">
+      <created>1530673578801</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1530673578801</updated>
+    </task>
+    <task id="LOCAL-00013" summary="add a script to make custom dictionary - add compatibility for tensorflow-deepcut">
+      <created>1530673843577</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1530673843577</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -266,7 +292,7 @@
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Event Log" order="7" sideWeight="0.5010661" side_tool="true" weight="0.34422657" />
       <window_info anchor="bottom" id="Version Control" order="7" weight="0.32792208" />
-      <window_info active="true" anchor="bottom" id="Python Console" order="7" sideWeight="0.4989339" visible="true" weight="0.36580086" />
+      <window_info active="true" anchor="bottom" id="Python Console" order="7" sideWeight="0.4989339" visible="true" weight="0.36688313" />
       <window_info anchor="bottom" id="Run" order="2" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Terminal" order="7" weight="0.32792208" />
@@ -299,7 +325,9 @@
     <MESSAGE value="add longest match for garbage words" />
     <MESSAGE value="add garbage word list" />
     <MESSAGE value="add Thai and English wordlist" />
-    <option name="LAST_COMMIT_MESSAGE" value="add Thai and English wordlist" />
+    <MESSAGE value="add a script to make custom dictionary" />
+    <MESSAGE value="add a script to make custom dictionary - add compatibility for tensorflow-deepcut" />
+    <option name="LAST_COMMIT_MESSAGE" value="add a script to make custom dictionary - add compatibility for tensorflow-deepcut" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -417,13 +445,6 @@
     <entry file="file://$PROJECT_DIR$/parse_ad" />
     <entry file="file://C:/Program Files/Python36/Lib/json/__init__.py" />
     <entry file="file://$USER_HOME$/JPA/Lib/site-packages/IPython/core/interactiveshell.py" />
-    <entry file="file://$PROJECT_DIR$/word_counting.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="495">
-          <caret line="33" column="47" selection-start-line="33" selection-start-column="47" selection-end-line="33" selection-end-column="47" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/unit_test.py" />
     <entry file="file://$PROJECT_DIR$/parse_ad.py" />
     <entry file="file://$PROJECT_DIR$/notebook/Dictionary_Tasks.ipynb" />
@@ -446,38 +467,48 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/tokenizer.py">
+    <entry file="file://$PROJECT_DIR$/word_counting.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="435">
-          <caret line="29" column="25" selection-start-line="29" selection-start-column="25" selection-end-line="29" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/clean_text.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1785">
-          <caret line="119" selection-start-line="119" selection-end-line="119" />
+        <state relative-caret-position="405">
+          <caret line="33" column="47" selection-start-line="33" selection-start-column="47" selection-end-line="33" selection-end-column="47" />
+          <folding>
+            <element signature="e#238#415#0" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/nlp_lib.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="735">
+        <state relative-caret-position="501">
           <caret line="49" selection-start-line="49" selection-end-line="49" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/clean_text.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="441">
+          <caret line="122" selection-start-line="122" selection-end-line="122" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tokenizer.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="300">
+          <caret line="62" column="25" selection-start-line="62" selection-start-column="25" selection-end-line="62" selection-end-column="25" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/mkdict.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="427">
-          <caret line="36" column="21" lean-forward="true" selection-start-line="36" selection-start-column="21" selection-end-line="36" selection-end-column="21" />
+        <state relative-caret-position="576">
+          <caret line="40" selection-start-line="40" selection-end-line="40" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/create_dict.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-8">
-          <caret line="226" column="28" lean-forward="true" selection-start-line="226" selection-start-column="28" selection-end-line="226" selection-end-column="28" />
+        <state relative-caret-position="336">
+          <caret line="260" column="37" lean-forward="true" selection-start-line="260" selection-start-column="37" selection-end-line="260" selection-end-column="37" />
           <folding>
             <element signature="e#94#2308#0" />
           </folding>

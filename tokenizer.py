@@ -13,7 +13,6 @@ class Tokenizer:
         self.eng_tokenizer = TreebankWordTokenizer()
         self.n_gram = n_gram
         self.tokenizer = tokenizer
-
         self.pattern_sentence_collide = re.compile('[a-z][A-Z]]')
         self.pattern_thai_char = re.compile(u'[\u0e00-\u0e7f]')
         if keyword:
@@ -59,7 +58,9 @@ class Tokenizer:
 
         if cleaning:
             text = self.cleaner.clean_text(text)
+        print(text)
         text_split = text.split('|')
+        print(text_split)
 
         first_pass = []
         for i, item in enumerate(text_split):

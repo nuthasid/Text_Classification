@@ -18,6 +18,7 @@ class CleanText:
         self.pattern_url = re.compile('(https://|www.)[a-zA-Z0-9]+.[a-z]+[^\s]*')
         self.pattern_sentence_collide = re.compile('[a-z][A-Z]]')
         self.pattern_thai_name = re.compile(u'\u0e04\u0e38\u0e13\s*[\u0e00-\u0e7f]+\s+')
+        self.pattern_prefix_garbage = re.compile('^\-|^\||^\.|^\#{1,2}|^(\-\|)|^(\+\|)|^(\#\|)^(\.\|)')
         self.charset = {}
         with open(os.path.join(os.path.dirname(os.path.realpath(__file__)), 'dict', 'charset'), 'rt') as charfile:
             for item in charfile.read().split('\n'):
@@ -56,6 +57,8 @@ class CleanText:
                     ret_text += ' '
                 else:
                     ret_text += cha
+            while self.pattern_prefix_garbage.search(ret_text):
+                self.pattern_prefix_garbage.sub(' ', ret_text)
             while ret_text.find('  ') != -1:
                 ret_text = ret_text.replace('  ', ' ')
             return ret_text

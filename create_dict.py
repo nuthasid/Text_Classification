@@ -124,10 +124,11 @@ class CleanText:
 
 class CreateDict:
 
-    def __init__(self, tokenizer, n_gram=1, processes=8, tokenize_processess=8, stop_en=None, stop_th=None, keyword=None, th_wordlist=None,
+    def __init__(self, tokenizer, n_gram=1, processes=8, tokenize_processes=8, stop_en=None, stop_th=None, keyword=None, th_wordlist=None,
                  en_wordlist=None):
 
         from tokenizer import Tokenizer
+        import json
         import os
 
         Clean_Text = CleanText(stop_en=stop_en, stop_th=stop_th, keyword=keyword)
@@ -135,20 +136,16 @@ class CreateDict:
         TKN = Tokenizer(tokenizer=tokenizer, n_gram=n_gram, stop_en=stop_en, stop_th=stop_th, keyword=keyword)
         self.tkn = TKN.tokenizer
         self.processes = processes
-        self.token_processes = tokenize_processess
+        self.token_processes = tokenize_processes
         self.n_gram = n_gram
         if th_wordlist:
-            self.wordlist_th = []
             with open(os.path.join(os.getcwd(), '..', 'dict', th_wordlist), 'rt', encoding='utf-8') as f:
-                for line in f.readlines():
-                    self.wordlist_th.append(line[:-1])
+                self.wordlist_th = json.load(f)
         else:
             self.wordlist_th = None
         if en_wordlist:
-            self.wordlist_en = []
             with open(os.path.join(os.getcwd(), '..', 'dict', en_wordlist), 'rt', encoding='utf-8') as f:
-                for line in f.readlines():
-                    self.wordlist_en.append(line.split('\t')[0].strip())
+                self.wordlist_en = json.load(f)
         else:
             self.wordlist_en = None
 
@@ -210,18 +207,14 @@ class CreateDict:
 
             return (word, match, item)
 
-        def find_matching(word, levin=False):
+        def find_matching(word):
 
             if ord(word[0]) in range(3584, 3712):
                 current_wl = self.wordlist_th
             else:
                 current_wl = self.wordlist_en
-            for item in current_wl:
-                if item == word:
-                    ret = (word, word, 0)
-                    return ret
-            if levin:
-                return levenshtein(word, current_wl)
+            if word in current_wl:
+                return (word, word, 0)
             else:
                 return (word, word, 1)
 
@@ -240,7 +233,12 @@ class CreateDict:
         docs = docs.get()
         print('Finish cleaning text - time: ', str(time.time()-start))
         if self.token_processes == 1:
-            tokens = [self.tkn(doc) for doc in docs]
+        #    tokens = [self.tkn(doc) for doc in docs]
+            tokens = []
+            for doc in docs:
+                doc = doc.replace('|', ' ')
+                token = self.tkn(doc)
+                tokens.append(token)
         else:
             pool = mp.ProcessPool(nodes=self.processes)
             tokens = pool.amap(self.tkn, docs)
@@ -250,11 +248,26 @@ class CreateDict:
         tokens = []
         for item in temp:
             tokens.extend(item)
-        tokens.sort()
-        tokens = set(tokens)
         tokens = [item.lower() for item in tokens if item != '']
+        tokens.sort()
+        temp = copy.deepcopy(tokens)
+        tokens = set(tokens)
+        dicts = {}
+        for token in tokens:
+            dicts[token] = 0
+        for doc in temp:
+            for token in doc:
+                if token in dicts:
+                    dicts[token] += 1
         print('Finish compile list - time: ', str(time.time()-start))
         pool = mp.ProcessPool(nodes=self.processes)
-        dicts = pool.amap(find_matching, tokens)
-        dicts = dicts.get()
-        return dicts
+        wordlist = pool.amap(find_matching, tokens)
+        wordlist = wordlist.get()
+        dict_in = {}
+        dict_out = {}
+        for word in wordlist:
+            if word[2] == 0:
+                dict_in[word[0]] = dicts[word[0]]
+            else:
+                dict_out[word[0]] = dicts[word[0]]
+        return dict_in, dict_out, temp
