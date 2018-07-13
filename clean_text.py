@@ -58,7 +58,7 @@ class CleanText:
                 else:
                     ret_text += cha
             while self.pattern_prefix_garbage.search(ret_text):
-                self.pattern_prefix_garbage.sub(' ', ret_text)
+                ret_text = self.pattern_prefix_garbage.sub(' ', ret_text)
             while ret_text.find('  ') != -1:
                 ret_text = ret_text.replace('  ', ' ')
             return ret_text
@@ -94,12 +94,6 @@ class CleanText:
                     newstr += th_text[stop_pos[j][1]:stop_pos[j+1][0]] + ' '
             return newstr
 
-        import time
-
-        start = time.time()
-
-        print('cleaning "' + text[:40] + '" start time: ' + str(start))
-
         text = text.replace(u'\u0e46', ' ')
         text = self.pattern_email.sub(' ', text)
         text = self.pattern_url.sub(' ', text)
@@ -110,13 +104,12 @@ class CleanText:
         text = text.replace('.', ' . ')
         text = validate_char(text)
         text = remove_thai_stop(text)
+
         text_split = text.split(' ')
         text_split = [item for item in text_split[:] if item not in self.stop_en
                       and not self.pattern_num_bullet.search(item)]
         text_split = [self.stemming.stem(item) if self.pattern_eng_token.search(item) and
                                                   item not in self.keyword else item for item in text_split[:]]
         text = '|'.join(text_split)
-
-        print('finish "' + text[:40] + '" elapsed time: ' + str(time.time() - start))
 
         return text
