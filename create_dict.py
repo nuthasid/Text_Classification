@@ -133,7 +133,7 @@ class CreateDict:
 
         Clean_Text = CleanText(stop_en=stop_en, stop_th=stop_th, keyword=keyword)
         self.clean_text = Clean_Text.clean_text
-        self.TKN = Tokenizer(tokenizer=tokenize, n_gram=n_gram, stop_en=stop_en, stop_th=stop_th, keyword=keyword)
+        self.TKN = Tokenizer(tokenize=tokenize, n_gram=n_gram, stop_en=stop_en, stop_th=stop_th, keyword=keyword)
         #self.tkn = TKN.tokenizer
         self.processes = processes
         self.token_processes = tokenize_processes
@@ -165,7 +165,7 @@ class CreateDict:
 
         print('get done:', time.time() - start)
 
-        dicts = [self.tkn(doc, False) for doc in cleaned]
+        dicts = [self.TKN.tokenizer(doc, False) for doc in cleaned]
 
         print('tokenize:', time.time() - start)
 
@@ -248,7 +248,7 @@ class CreateDict:
         tokens = []
         for item in temp:
             tokens.extend(item)
-        tokens = [item.lower() for item in tokens if item != '']
+        tokens = [item.lower().strip() for item in tokens if item != '']
         tokens.sort()
         temp = copy.deepcopy(tokens)
         tokens = set(tokens)
@@ -257,8 +257,10 @@ class CreateDict:
             dicts[token] = 0
         for doc in temp:
             for token in doc:
-                if token in dicts:
-                    dicts[token] += 1
+                token = token.lower().strip()
+                if token != '':
+                    if token in dicts:
+                        dicts[token] += 1
         print('Finish compile list - time: ', str(time.time()-start))
         pool = mp.ProcessPool(nodes=self.processes)
         wordlist = pool.amap(find_matching, tokens)

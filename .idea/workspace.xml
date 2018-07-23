@@ -2,7 +2,28 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="988fce17-3a40-4444-957a-4cd50939a736" name="Default" comment="">
+      <change afterPath="$PROJECT_DIR$/data/data20180620_test.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/create_dict.py" beforeDir="false" afterPath="$PROJECT_DIR$/create_dict.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dict/customdict_en.txt" beforeDir="false" afterPath="$PROJECT_DIR$/dict/customdict_en.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dict/customdict_th.txt" beforeDir="false" afterPath="$PROJECT_DIR$/dict/customdict_th.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dict/desc_newdict.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dict/desc_newdict_70p.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dict/desc_newdict_90p.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dict/desc_vocab.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dict/desc_vocab_small.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dict/en_stop_words_google.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dict/title_newdict.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dict/title_newdict_70p.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dict/title_newdict_90p.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dict/title_vocab.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dict/title_vocab_small.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/notebook/.ipynb_checkpoints/Create_Dataset-checkpoint.ipynb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/notebook/.ipynb_checkpoints/feature_extraction-checkpoint.ipynb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/notebook/Create_Dataset.ipynb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/notebook/Create_Dictionary.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/notebook/Create_Dictionary.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/notebook/feature_extraction.ipynb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tokenizer.py" beforeDir="false" afterPath="$PROJECT_DIR$/tokenizer.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -25,11 +46,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="tokenizer.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="tokenizer.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/tokenizer.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="45">
-              <caret line="3" column="36" selection-start-line="3" selection-start-column="36" selection-end-line="3" selection-end-column="36" />
+            <state relative-caret-position="15">
+              <caret line="16" column="16" selection-start-line="15" selection-start-column="8" selection-end-line="16" selection-end-column="63" />
             </state>
           </provider>
         </entry>
@@ -37,17 +58,40 @@
       <file leaf-file-name="clean_text.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/clean_text.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="441">
-              <caret line="122" selection-start-line="122" selection-end-line="122" />
+            <state relative-caret-position="1710">
+              <caret line="114" column="19" selection-start-line="114" selection-start-column="19" selection-end-line="114" selection-end-column="19" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="create_dict.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="charset" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/dict/charset">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1920">
+              <caret line="128" column="2" selection-start-line="128" selection-start-column="2" selection-end-line="128" selection-end-column="2" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="data20180620_test.json" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/../JobPostAnalysis/data/data20180620_test.json">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="45">
+              <caret line="3" column="1642" selection-start-line="3" selection-start-column="195" selection-end-line="3" selection-end-column="1642" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="data20180620_test.json" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/data/data20180620_test.json">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file leaf-file-name="create_dict.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/create_dict.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="420">
-              <caret line="148" column="13" lean-forward="true" selection-start-line="148" selection-start-column="13" selection-end-line="148" selection-end-column="13" />
+            <state relative-caret-position="60">
+              <caret line="124" selection-start-line="124" selection-end-line="124" />
               <folding>
                 <element signature="e#23#5346#0" />
                 <element signature="e#94#2308#0" />
@@ -59,7 +103,7 @@
       <file leaf-file-name="nlp_lib.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/nlp_lib.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="501">
+            <state relative-caret-position="735">
               <caret line="49" selection-start-line="49" selection-end-line="49" />
             </state>
           </provider>
@@ -68,7 +112,7 @@
       <file leaf-file-name="mkdict.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/mkdict.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="576">
+            <state relative-caret-position="600">
               <caret line="40" selection-start-line="40" selection-end-line="40" />
             </state>
           </provider>
@@ -105,10 +149,11 @@
         <option value="$PROJECT_DIR$/word_segmentor.py" />
         <option value="$PROJECT_DIR$/dict/clean_text.py" />
         <option value="$PROJECT_DIR$/nlp_lib.py" />
-        <option value="$PROJECT_DIR$/clean_text.py" />
-        <option value="$PROJECT_DIR$/tokenizer.py" />
         <option value="$PROJECT_DIR$/mkdict.py" />
         <option value="$PROJECT_DIR$/create_dict.py" />
+        <option value="$PROJECT_DIR$/tokenizer.py" />
+        <option value="$PROJECT_DIR$/clean_text.py" />
+        <option value="$PROJECT_DIR$/../JobPostAnalysis/data/data20180620_test.json" />
       </list>
     </option>
   </component>
@@ -119,10 +164,10 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="260" />
-    <option name="y" value="20" />
-    <option name="width" value="1400" />
-    <option name="height" value="1000" />
+    <option name="x" value="960" />
+    <option name="y" value="25" />
+    <option name="width" value="960" />
+    <option name="height" value="1055" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -140,7 +185,7 @@
             <path>
               <item name="Text_Classification" type="b2602c69:ProjectViewProjectNode" />
               <item name="Text_Classification" type="462c0819:PsiDirectoryNode" />
-              <item name="dict" type="462c0819:PsiDirectoryNode" />
+              <item name="gitmount" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -151,10 +196,13 @@
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/gitmount" />
     <property name="settings.editor.selected.configurable" value="vcs.Git" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/data" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$" />
     </key>
@@ -280,18 +328,31 @@
       <option name="project" value="LOCAL" />
       <updated>1530867467921</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="add a script to make custom dictionary - add compatibility for tensorflow-deepcut">
+      <created>1530869140994</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1530869140994</updated>
+    </task>
+    <task id="LOCAL-00016" summary="add a script to make custom dictionary - add compatibility for tensorflow-deepcut">
+      <created>1531474321085</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1531474321085</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="25" width="1920" height="1055" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.17616034" />
       <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" id="Event Log" order="7" sideWeight="0.5010661" side_tool="true" weight="0.34422657" />
+      <window_info anchor="bottom" id="Event Log" order="7" sideWeight="0.50158226" side_tool="true" weight="0.36796537" />
       <window_info anchor="bottom" id="Version Control" order="7" weight="0.32792208" />
-      <window_info anchor="bottom" id="Python Console" order="7" sideWeight="0.4989339" visible="true" weight="0.36688313" />
+      <window_info anchor="bottom" id="Python Console" order="7" sideWeight="0.49841774" visible="true" weight="0.37121212" />
       <window_info anchor="bottom" id="Run" order="2" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Terminal" order="7" weight="0.32792208" />
@@ -349,14 +410,6 @@
     </watches-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/unit_test.py" />
-    <entry file="file://$PROJECT_DIR$/tokenizer.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
-          <caret line="21" lean-forward="true" selection-start-line="21" selection-end-line="21" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/parse_ad.py" />
     <entry file="file://$PROJECT_DIR$/word_counting.py">
       <provider selected="true" editor-type-id="text-editor">
@@ -450,13 +503,8 @@
     <entry file="file://$PROJECT_DIR$/dict/en_stop_word_google.txt">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/dict/en_stop_words_google.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-8962" />
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/dict/en_stop_words_google.txt" />
     <entry file="file://$PROJECT_DIR$/dict/stop_word" />
-    <entry file="file://$PROJECT_DIR$/dict/charset" />
     <entry file="file://$PROJECT_DIR$/word_segmentor.py" />
     <entry file="file://$PROJECT_DIR$/test.py" />
     <entry file="file://$PROJECT_DIR$/dict/keywords">
@@ -478,40 +526,57 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/nlp_lib.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="501">
+        <state relative-caret-position="735">
           <caret line="49" selection-start-line="49" selection-end-line="49" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/clean_text.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="441">
-          <caret line="122" selection-start-line="122" selection-end-line="122" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/mkdict.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="576">
+        <state relative-caret-position="600">
           <caret line="40" selection-start-line="40" selection-end-line="40" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../JobPostAnalysis/data/data20180620_test.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="45">
+          <caret line="3" column="1642" selection-start-line="3" selection-start-column="195" selection-end-line="3" selection-end-column="1642" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data/data20180620_test.json">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/create_dict.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="124" selection-start-line="124" selection-end-line="124" />
+          <folding>
+            <element signature="e#23#5346#0" />
+            <element signature="e#94#2308#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/clean_text.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1710">
+          <caret line="114" column="19" selection-start-line="114" selection-start-column="19" selection-end-line="114" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dict/charset">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1920">
+          <caret line="128" column="2" selection-start-line="128" selection-start-column="2" selection-end-line="128" selection-end-column="2" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/tokenizer.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="45">
-          <caret line="3" column="36" selection-start-line="3" selection-start-column="36" selection-end-line="3" selection-end-column="36" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/create_dict.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="420">
-          <caret line="148" column="13" lean-forward="true" selection-start-line="148" selection-start-column="13" selection-end-line="148" selection-end-column="13" />
-          <folding>
-            <element signature="e#23#5346#0" />
-            <element signature="e#94#2308#0" />
-          </folding>
+        <state relative-caret-position="15">
+          <caret line="16" column="16" selection-start-line="15" selection-start-column="8" selection-end-line="16" selection-end-column="63" />
         </state>
       </provider>
     </entry>

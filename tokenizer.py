@@ -1,7 +1,7 @@
 
 class Tokenizer:
 
-    def __init__(self, n_gram, tokenizer, stop_en=None, stop_th=None, keyword=None):
+    def __init__(self, n_gram, tokenize, stop_en=None, stop_th=None, keyword=None, dicts=None):
 
         import re
         import os
@@ -12,7 +12,7 @@ class Tokenizer:
         self.test_text = 'ตัวอย่างความต้องการใช้ตัวอย่างความต้องการลีนุ๊กซ์การใช้ยากลำบาก'
         self.eng_tokenizer = TreebankWordTokenizer()
         self.n_gram = n_gram
-        self.tokenizer = tokenizer
+        self.tokenize = tokenize
         self.pattern_sentence_collide = re.compile('[a-z][A-Z]]')
         self.pattern_thai_char = re.compile(u'[\u0e00-\u0e7f]')
         if keyword:
@@ -21,7 +21,7 @@ class Tokenizer:
         else:
             self.keyword = set([])
 
-    def tokenizer(self, text=None, cleaning=False):
+    def tokenizer(self, text=None, cleaning=True):
 
         def n_gram_compile(tokens, n):
 
@@ -58,9 +58,7 @@ class Tokenizer:
 
         if cleaning:
             text = self.cleaner.clean_text(text)
-        print(text)
         text_split = text.split('|')
-        print(text_split)
 
         first_pass = []
         for i, item in enumerate(text_split):
@@ -72,10 +70,14 @@ class Tokenizer:
         second_pass = []
         for i, chunk in enumerate(first_pass):
             if self.pattern_thai_char.search(chunk) and len(chunk) > 1:
-                new_chunk = self.tokenizer(chunk)
+                new_chunk = self.tokenize(chunk)
                 new_chunk = n_grams_compile(new_chunk, self.n_gram)
                 second_pass.extend(new_chunk)
             else:
                 second_pass.append(chunk.lower())
 
         return second_pass
+
+    def dict_tokenizer(self, text=None):
+
+        return

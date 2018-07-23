@@ -68,3 +68,8 @@ css
 firewalls
 payables
 youtube
+autocad
+regulations 
+extranet
+middleware
+skincare
